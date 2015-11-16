@@ -1,0 +1,61 @@
+﻿@model Inventon.DAL.Entities.ProduktTable
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ProduktTable</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProduktNazwa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProduktNazwa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProduktOpis)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProduktOpis)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProduktCena)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProduktCena)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProduktDataDodania)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProduktDataDodania)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProduktProducentId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProduktProducentId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.KategoriaId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.KategoriaId)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

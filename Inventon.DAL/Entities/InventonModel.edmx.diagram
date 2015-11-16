@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ecf1b317a6774f0e8e58471e64e506fb" Name="Diagram1" ZoomLevel="99">
+        <EntityTypeShape EntityType="InventonDatabaseModel.KategoriaTable" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventonDatabaseModel.ProducentTable" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventonDatabaseModel.ProduktTable" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventonDatabaseModel.ProduktZamowienieTable" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventonDatabaseModel.StatusZamowieniaTable" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventonDatabaseModel.ZamowienieTable" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="InventonDatabaseModel.FK_ProduktTable_KategoriaTable" ManuallyRouted="false" />
+        <AssociationConnector Association="InventonDatabaseModel.FK_ProduktTable_ProducentTable" ManuallyRouted="false" />
+        <AssociationConnector Association="InventonDatabaseModel.FK_ProduktZamowienieTable_ProduktTable" ManuallyRouted="false" />
+        <AssociationConnector Association="InventonDatabaseModel.FK_ProduktZamowienieTable_ZamowienieTable" ManuallyRouted="false" />
+        <AssociationConnector Association="InventonDatabaseModel.FK_ZamowienieTable_StatusZamowieniaTable" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventonDatabaseModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="InventonDatabaseEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="KategoriaTable" EntityType="InventonDatabaseModel.KategoriaTable" />
+    <EntitySet Name="ProducentTable" EntityType="InventonDatabaseModel.ProducentTable" />
+    <EntitySet Name="ProduktTable" EntityType="InventonDatabaseModel.ProduktTable" />
+    <EntitySet Name="ProduktZamowienieTable" EntityType="InventonDatabaseModel.ProduktZamowienieTable" />
+    <EntitySet Name="StatusZamowieniaTable" EntityType="InventonDatabaseModel.StatusZamowieniaTable" />
+    <EntitySet Name="ZamowienieTable" EntityType="InventonDatabaseModel.ZamowienieTable" />
+    <AssociationSet Name="FK_ProduktTable_KategoriaTable" Association="InventonDatabaseModel.FK_ProduktTable_KategoriaTable">
+      <End Role="KategoriaTable" EntitySet="KategoriaTable" />
+      <End Role="ProduktTable" EntitySet="ProduktTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProduktTable_ProducentTable" Association="InventonDatabaseModel.FK_ProduktTable_ProducentTable">
+      <End Role="ProducentTable" EntitySet="ProducentTable" />
+      <End Role="ProduktTable" EntitySet="ProduktTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProduktZamowienieTable_ProduktTable" Association="InventonDatabaseModel.FK_ProduktZamowienieTable_ProduktTable">
+      <End Role="ProduktTable" EntitySet="ProduktTable" />
+      <End Role="ProduktZamowienieTable" EntitySet="ProduktZamowienieTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProduktZamowienieTable_ZamowienieTable" Association="InventonDatabaseModel.FK_ProduktZamowienieTable_ZamowienieTable">
+      <End Role="ZamowienieTable" EntitySet="ZamowienieTable" />
+      <End Role="ProduktZamowienieTable" EntitySet="ProduktZamowienieTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZamowienieTable_StatusZamowieniaTable" Association="InventonDatabaseModel.FK_ZamowienieTable_StatusZamowieniaTable">
+      <End Role="StatusZamowieniaTable" EntitySet="StatusZamowieniaTable" />
+      <End Role="ZamowienieTable" EntitySet="ZamowienieTable" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="KategoriaTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="KategoriaNazwa" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="KategoriaOpis" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="KategoriaDataDodania" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ProduktTable" Relationship="InventonDatabaseModel.FK_ProduktTable_KategoriaTable" FromRole="KategoriaTable" ToRole="ProduktTable" />
+  </EntityType>
+  <EntityType Name="ProducentTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="ProducentNazwa" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ProduktTable" Relationship="InventonDatabaseModel.FK_ProduktTable_ProducentTable" FromRole="ProducentTable" ToRole="ProduktTable" />
+  </EntityType>
+  <EntityType Name="ProduktTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProduktNazwa" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="ProduktOpis" Type="String" MaxLength="350" Unicode="true" FixedLength="false" />
+    <Property Name="ProduktCena" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="ProduktDataDodania" Type="DateTime" Precision="3" />
+    <Property Name="ProduktProducentId" Type="Int32" />
+    <Property Name="KategoriaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="KategoriaTable" Relationship="InventonDatabaseModel.FK_ProduktTable_KategoriaTable" FromRole="ProduktTable" ToRole="KategoriaTable" />
+    <NavigationProperty Name="ProducentTable" Relationship="InventonDatabaseModel.FK_ProduktTable_ProducentTable" FromRole="ProduktTable" ToRole="ProducentTable" />
+    <NavigationProperty Name="ProduktZamowienieTable" Relationship="InventonDatabaseModel.FK_ProduktZamowienieTable_ProduktTable" FromRole="ProduktTable" ToRole="ProduktZamowienieTable" />
+  </EntityType>
+  <EntityType Name="ProduktZamowienieTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ZamowienieId" Type="Int32" Nullable="false" />
+    <Property Name="ProduktId" Type="Int32" Nullable="false" />
+    <Property Name="Ilosc" Type="Int32" Nullable="false" />
+    <Property Name="CenaSuma" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ProduktTable" Relationship="InventonDatabaseModel.FK_ProduktZamowienieTable_ProduktTable" FromRole="ProduktZamowienieTable" ToRole="ProduktTable" />
+    <NavigationProperty Name="ZamowienieTable" Relationship="InventonDatabaseModel.FK_ProduktZamowienieTable_ZamowienieTable" FromRole="ProduktZamowienieTable" ToRole="ZamowienieTable" />
+  </EntityType>
+  <EntityType Name="StatusZamowieniaTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="StatusNazwa" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="StatusOpis" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ZamowienieTable" Relationship="InventonDatabaseModel.FK_ZamowienieTable_StatusZamowieniaTable" FromRole="StatusZamowieniaTable" ToRole="ZamowienieTable" />
+  </EntityType>
+  <EntityType Name="ZamowienieTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Imie" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="KodPocztowy" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Miejscowosc" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Adres" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Telefon" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Email" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="StatusZamowieniaId" Type="Int32" Nullable="false" />
+    <Property Name="DataPrzyjecia" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ProduktZamowienieTable" Relationship="InventonDatabaseModel.FK_ProduktZamowienieTable_ZamowienieTable" FromRole="ZamowienieTable" ToRole="ProduktZamowienieTable" />
+    <NavigationProperty Name="StatusZamowieniaTable" Relationship="InventonDatabaseModel.FK_ZamowienieTable_StatusZamowieniaTable" FromRole="ZamowienieTable" ToRole="StatusZamowieniaTable" />
+  </EntityType>
+  <Association Name="FK_ProduktTable_KategoriaTable">
+    <End Role="KategoriaTable" Type="InventonDatabaseModel.KategoriaTable" Multiplicity="1" />
+    <End Role="ProduktTable" Type="InventonDatabaseModel.ProduktTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KategoriaTable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProduktTable">
+        <PropertyRef Name="KategoriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProduktTable_ProducentTable">
+    <End Role="ProducentTable" Type="InventonDatabaseModel.ProducentTable" Multiplicity="0..1" />
+    <End Role="ProduktTable" Type="InventonDatabaseModel.ProduktTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProducentTable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProduktTable">
+        <PropertyRef Name="ProduktProducentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProduktZamowienieTable_ProduktTable">
+    <End Role="ProduktTable" Type="InventonDatabaseModel.ProduktTable" Multiplicity="1" />
+    <End Role="ProduktZamowienieTable" Type="InventonDatabaseModel.ProduktZamowienieTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProduktTable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProduktZamowienieTable">
+        <PropertyRef Name="ProduktId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProduktZamowienieTable_ZamowienieTable">
+    <End Role="ZamowienieTable" Type="InventonDatabaseModel.ZamowienieTable" Multiplicity="1" />
+    <End Role="ProduktZamowienieTable" Type="InventonDatabaseModel.ProduktZamowienieTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZamowienieTable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProduktZamowienieTable">
+        <PropertyRef Name="ZamowienieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZamowienieTable_StatusZamowieniaTable">
+    <End Role="StatusZamowieniaTable" Type="InventonDatabaseModel.StatusZamowieniaTable" Multiplicity="1" />
+    <End Role="ZamowienieTable" Type="InventonDatabaseModel.ZamowienieTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusZamowieniaTable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ZamowienieTable">
+        <PropertyRef Name="StatusZamowieniaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

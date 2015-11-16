@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InventonDatabaseModelStoreContainer" CdmEntityContainer="InventonDatabaseEntities">
+    <EntitySetMapping Name="KategoriaTable">
+      <EntityTypeMapping TypeName="InventonDatabaseModel.KategoriaTable">
+        <MappingFragment StoreEntitySet="KategoriaTable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="KategoriaNazwa" ColumnName="KategoriaNazwa" />
+          <ScalarProperty Name="KategoriaOpis" ColumnName="KategoriaOpis" />
+          <ScalarProperty Name="KategoriaDataDodania" ColumnName="KategoriaDataDodania" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProducentTable">
+      <EntityTypeMapping TypeName="InventonDatabaseModel.ProducentTable">
+        <MappingFragment StoreEntitySet="ProducentTable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ProducentNazwa" ColumnName="ProducentNazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProduktTable">
+      <EntityTypeMapping TypeName="InventonDatabaseModel.ProduktTable">
+        <MappingFragment StoreEntitySet="ProduktTable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ProduktNazwa" ColumnName="ProduktNazwa" />
+          <ScalarProperty Name="ProduktOpis" ColumnName="ProduktOpis" />
+          <ScalarProperty Name="ProduktCena" ColumnName="ProduktCena" />
+          <ScalarProperty Name="ProduktDataDodania" ColumnName="ProduktDataDodania" />
+          <ScalarProperty Name="ProduktProducentId" ColumnName="ProduktProducentId" />
+          <ScalarProperty Name="KategoriaId" ColumnName="KategoriaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProduktZamowienieTable">
+      <EntityTypeMapping TypeName="InventonDatabaseModel.ProduktZamowienieTable">
+        <MappingFragment StoreEntitySet="ProduktZamowienieTable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ZamowienieId" ColumnName="ZamowienieId" />
+          <ScalarProperty Name="ProduktId" ColumnName="ProduktId" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+          <ScalarProperty Name="CenaSuma" ColumnName="CenaSuma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusZamowieniaTable">
+      <EntityTypeMapping TypeName="InventonDatabaseModel.StatusZamowieniaTable">
+        <MappingFragment StoreEntitySet="StatusZamowieniaTable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="StatusNazwa" ColumnName="StatusNazwa" />
+          <ScalarProperty Name="StatusOpis" ColumnName="StatusOpis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZamowienieTable">
+      <EntityTypeMapping TypeName="InventonDatabaseModel.ZamowienieTable">
+        <MappingFragment StoreEntitySet="ZamowienieTable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+          <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="StatusZamowieniaId" ColumnName="StatusZamowieniaId" />
+          <ScalarProperty Name="DataPrzyjecia" ColumnName="DataPrzyjecia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

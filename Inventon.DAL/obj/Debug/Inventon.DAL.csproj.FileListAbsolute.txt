@@ -1,0 +1,14 @@
+C:\Development\InventonAplikacja\Inventon.DAL\bin\Debug\Inventon.DAL.dll.config
+C:\Development\InventonAplikacja\Inventon.DAL\bin\Debug\Inventon.DAL.dll
+C:\Development\InventonAplikacja\Inventon.DAL\bin\Debug\Inventon.DAL.pdb
+C:\Development\InventonAplikacja\Inventon.DAL\bin\Debug\EntityFramework.dll
+C:\Development\InventonAplikacja\Inventon.DAL\bin\Debug\EntityFramework.xml
+C:\Development\InventonAplikacja\Inventon.DAL\obj\Debug\Inventon.DAL.csprojResolveAssemblyReference.cache
+C:\Development\InventonAplikacja\Inventon.DAL\obj\Debug\Inventon.DAL.dll
+C:\Development\InventonAplikacja\Inventon.DAL\obj\Debug\Inventon.DAL.pdb
+C:\Development\InventonAplikacja\Inventon.DAL\obj\Debug\Inventon.DAL.Migrations.InitialCreate.resources
+C:\Development\InventonAplikacja\Inventon.DAL\obj\Debug\Inventon.DAL.csproj.GenerateResource.Cache
+C:\Development\InventonAplikacja\Inventon.DAL\obj\Debug\Inventon.DAL.Migrations.NowePola.resources
+C:\Development\InventonAplikacja\Inventon.DAL\obj\Debug\Inventon.DAL.Migrations.PoprawionePola.resources
+C:\Development\InventonAplikacja\Inventon.DAL\obj\Debug\Inventon.DAL.Migrations.Nowe.resources
+C:\Development\InventonAplikacja\Inventon.DAL\obj\Debug\Inventon.DAL.Migrations.Obrazek.resources

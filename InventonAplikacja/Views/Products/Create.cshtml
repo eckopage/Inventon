@@ -1,0 +1,77 @@
+﻿@model InventonAplikacja.Models.ProductModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ProduktTable</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProduktNazwa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProduktNazwa)
+            @Html.ValidationMessageFor(model => model.ProduktNazwa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProduktOpis)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProduktOpis)
+            @Html.ValidationMessageFor(model => model.ProduktOpis)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProduktCena)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProduktCena)
+            @Html.ValidationMessageFor(model => model.ProduktCena)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProduktProducentId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Products", ViewData["products"] as List<SelectListItem>,"-- Wybierz produkt --")
+            @Html.ValidationMessageFor(model => model.ProduktProducentId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.KategoriaId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Categories", ViewData["categories"] as List<SelectListItem>, "-- Wybierz kategorię --")
+            @Html.ValidationMessageFor(model => model.KategoriaId)
+        </div>
+
+         @{
+                var base64 = Convert.ToBase64String(Model.Obrazek);
+                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+          }
+            <img src='@imgSrc' style="max-width:100px; max-height:100px;" />
+
+        <p>
+            <input class="btn btn-large btn-primary" type="submit" value="Create"/>
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

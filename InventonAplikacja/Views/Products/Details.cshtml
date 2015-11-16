@@ -1,0 +1,57 @@
+﻿@model Inventon.DAL.Entities.ProduktTable
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ProduktTable</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProduktNazwa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProduktNazwa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProduktOpis)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProduktOpis)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProduktCena)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProduktCena)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProduktDataDodania)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProduktDataDodania)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProduktProducentId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProduktProducentId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.KategoriaId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.KategoriaId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

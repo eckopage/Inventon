@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventonDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="InventonDatabaseModelStoreContainer">
+    <EntitySet Name="KategoriaTable" EntityType="InventonDatabaseModel.Store.KategoriaTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProducentTable" EntityType="InventonDatabaseModel.Store.ProducentTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProduktTable" EntityType="InventonDatabaseModel.Store.ProduktTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProduktZamowienieTable" EntityType="InventonDatabaseModel.Store.ProduktZamowienieTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StatusZamowieniaTable" EntityType="InventonDatabaseModel.Store.StatusZamowieniaTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ZamowienieTable" EntityType="InventonDatabaseModel.Store.ZamowienieTable" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ProduktTable_KategoriaTable" Association="InventonDatabaseModel.Store.FK_ProduktTable_KategoriaTable">
+      <End Role="KategoriaTable" EntitySet="KategoriaTable" />
+      <End Role="ProduktTable" EntitySet="ProduktTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProduktTable_ProducentTable" Association="InventonDatabaseModel.Store.FK_ProduktTable_ProducentTable">
+      <End Role="ProducentTable" EntitySet="ProducentTable" />
+      <End Role="ProduktTable" EntitySet="ProduktTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProduktZamowienieTable_ProduktTable" Association="InventonDatabaseModel.Store.FK_ProduktZamowienieTable_ProduktTable">
+      <End Role="ProduktTable" EntitySet="ProduktTable" />
+      <End Role="ProduktZamowienieTable" EntitySet="ProduktZamowienieTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProduktZamowienieTable_ZamowienieTable" Association="InventonDatabaseModel.Store.FK_ProduktZamowienieTable_ZamowienieTable">
+      <End Role="ZamowienieTable" EntitySet="ZamowienieTable" />
+      <End Role="ProduktZamowienieTable" EntitySet="ProduktZamowienieTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZamowienieTable_StatusZamowieniaTable" Association="InventonDatabaseModel.Store.FK_ZamowienieTable_StatusZamowieniaTable">
+      <End Role="StatusZamowieniaTable" EntitySet="StatusZamowieniaTable" />
+      <End Role="ZamowienieTable" EntitySet="ZamowienieTable" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="KategoriaTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="KategoriaNazwa" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="KategoriaOpis" Type="nvarchar" MaxLength="250" />
+    <Property Name="KategoriaDataDodania" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProducentTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="ProducentNazwa" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ProduktTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProduktNazwa" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="ProduktOpis" Type="nvarchar" MaxLength="350" />
+    <Property Name="ProduktCena" Type="nvarchar" MaxLength="10" />
+    <Property Name="ProduktDataDodania" Type="datetime" />
+    <Property Name="ProduktProducentId" Type="int" />
+    <Property Name="KategoriaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProduktZamowienieTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ZamowienieId" Type="int" Nullable="false" />
+    <Property Name="ProduktId" Type="int" Nullable="false" />
+    <Property Name="Ilosc" Type="int" Nullable="false" />
+    <Property Name="CenaSuma" Type="nvarchar" Nullable="false" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="StatusZamowieniaTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="StatusNazwa" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="StatusOpis" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ZamowienieTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Imie" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Nazwisko" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="KodPocztowy" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Miejscowosc" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Adres" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Telefon" Type="nchar" MaxLength="10" />
+    <Property Name="Email" Type="nchar" MaxLength="10" />
+    <Property Name="StatusZamowieniaId" Type="int" Nullable="false" />
+    <Property Name="DataPrzyjecia" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ProduktTable_KategoriaTable">
+    <End Role="KategoriaTable" Type="InventonDatabaseModel.Store.KategoriaTable" Multiplicity="1" />
+    <End Role="ProduktTable" Type="InventonDatabaseModel.Store.ProduktTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KategoriaTable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProduktTable">
+        <PropertyRef Name="KategoriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProduktTable_ProducentTable">
+    <End Role="ProducentTable" Type="InventonDatabaseModel.Store.ProducentTable" Multiplicity="0..1" />
+    <End Role="ProduktTable" Type="InventonDatabaseModel.Store.ProduktTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProducentTable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProduktTable">
+        <PropertyRef Name="ProduktProducentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProduktZamowienieTable_ProduktTable">
+    <End Role="ProduktTable" Type="InventonDatabaseModel.Store.ProduktTable" Multiplicity="1" />
+    <End Role="ProduktZamowienieTable" Type="InventonDatabaseModel.Store.ProduktZamowienieTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProduktTable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProduktZamowienieTable">
+        <PropertyRef Name="ProduktId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProduktZamowienieTable_ZamowienieTable">
+    <End Role="ZamowienieTable" Type="InventonDatabaseModel.Store.ZamowienieTable" Multiplicity="1" />
+    <End Role="ProduktZamowienieTable" Type="InventonDatabaseModel.Store.ProduktZamowienieTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZamowienieTable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProduktZamowienieTable">
+        <PropertyRef Name="ZamowienieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZamowienieTable_StatusZamowieniaTable">
+    <End Role="StatusZamowieniaTable" Type="InventonDatabaseModel.Store.StatusZamowieniaTable" Multiplicity="1" />
+    <End Role="ZamowienieTable" Type="InventonDatabaseModel.Store.ZamowienieTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusZamowieniaTable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ZamowienieTable">
+        <PropertyRef Name="StatusZamowieniaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

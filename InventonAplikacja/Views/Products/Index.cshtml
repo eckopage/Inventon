@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Inventon.DAL.Entities.ProduktTable>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProduktNazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProduktOpis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProduktCena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProduktDataDodania)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProduktProducentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KategoriaId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProduktNazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProduktOpis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProduktCena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProduktDataDodania)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProduktProducentId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KategoriaId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

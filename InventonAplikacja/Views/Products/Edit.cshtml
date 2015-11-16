@@ -1,0 +1,78 @@
+﻿@model Inventon.DAL.Entities.ProduktTable
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ProduktTable</legend>
+
+        @Html.HiddenFor(model => model.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProduktNazwa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProduktNazwa)
+            @Html.ValidationMessageFor(model => model.ProduktNazwa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProduktOpis)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProduktOpis)
+            @Html.ValidationMessageFor(model => model.ProduktOpis)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProduktCena)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProduktCena)
+            @Html.ValidationMessageFor(model => model.ProduktCena)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProduktDataDodania)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProduktDataDodania)
+            @Html.ValidationMessageFor(model => model.ProduktDataDodania)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProduktProducentId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProduktProducentId)
+            @Html.ValidationMessageFor(model => model.ProduktProducentId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.KategoriaId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.KategoriaId)
+            @Html.ValidationMessageFor(model => model.KategoriaId)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

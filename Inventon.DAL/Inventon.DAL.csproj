@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FE470ADC-3E90-44C9-9D3F-74E3CDFA5751}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Inventon.DAL</RootNamespace>
+    <AssemblyName>Inventon.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\InventonModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventonModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\InventonModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\InventonModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventonModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\KategoriaTable.cs">
+      <DependentUpon>InventonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProducentTable.cs">
+      <DependentUpon>InventonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProduktTable.cs">
+      <DependentUpon>InventonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProduktZamowienieTable.cs">
+      <DependentUpon>InventonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\StatusZamowieniaTable.cs">
+      <DependentUpon>InventonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ZamowienieTable.cs">
+      <DependentUpon>InventonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511131256559_InitialCreate.cs" />
+    <Compile Include="Migrations\201511131256559_InitialCreate.Designer.cs">
+      <DependentUpon>201511131256559_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511141939032_NowePola.cs" />
+    <Compile Include="Migrations\201511141939032_NowePola.Designer.cs">
+      <DependentUpon>201511141939032_NowePola.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511141942110_PoprawionePola.cs" />
+    <Compile Include="Migrations\201511141942110_PoprawionePola.Designer.cs">
+      <DependentUpon>201511141942110_PoprawionePola.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511142053187_Nowe.cs" />
+    <Compile Include="Migrations\201511142053187_Nowe.Designer.cs">
+      <DependentUpon>201511142053187_Nowe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511151151303_Obrazek.cs" />
+    <Compile Include="Migrations\201511151151303_Obrazek.Designer.cs">
+      <DependentUpon>201511151151303_Obrazek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Entities\InventonModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>InventonModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Entities\InventonModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InventonModel.edmx</DependentUpon>
+      <LastGenOutput>InventonModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\InventonModel.edmx.diagram">
+      <DependentUpon>InventonModel.edmx</DependentUpon>
+    </None>
+    <None Include="Entities\InventonModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InventonModel.edmx</DependentUpon>
+      <LastGenOutput>InventonModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201511131256559_InitialCreate.resx">
+      <DependentUpon>201511131256559_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511141939032_NowePola.resx">
+      <DependentUpon>201511141939032_NowePola.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511141942110_PoprawionePola.resx">
+      <DependentUpon>201511141942110_PoprawionePola.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511142053187_Nowe.resx">
+      <DependentUpon>201511142053187_Nowe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511151151303_Obrazek.resx">
+      <DependentUpon>201511151151303_Obrazek.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
